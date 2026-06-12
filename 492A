@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int level = 0, need = 0;
+
+    while (n >= need + level + 1) {
+        level++;
+        need += level;
+        n -= need;
+    }
+
+    cout << level;
+
+    return 0;
+}
