@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t, n, m;
+    string x, s;
+    cin >> t;
+
+    while (t--) {
+        cin >> n >> m >> x >> s;
+
+        int c = 0;
+
+        while (x.find(s) == string::npos && x.size() <= 50) {
+            x += x;
+            c++;
+        }
+
+        cout << (x.find(s) != string::npos ? c : -1) << '\n';
+    }
+}
