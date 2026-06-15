@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n, x, one = 0, two = 0;
+        cin >> n;
+
+        while (n--) {
+            cin >> x;
+            if (x == 1) one++;
+            else two++;
+        }
+
+        int sum = one + 2 * two;
+
+        if (sum & 1) cout << "NO\n";
+        else if (one == 0 && (two & 1)) cout << "NO\n";
+        else if (one & 1) cout << "NO\n";
+        else cout << "YES\n";
+    }
+
+    return 0;
+}
