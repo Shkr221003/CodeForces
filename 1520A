@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        string s;
+        cin >> n >> s;
+
+        set<char> done;
+        bool ok = true;
+
+        done.insert(s[0]);
+
+        for (int i = 1; i < n; i++) {
+            if (s[i] != s[i - 1]) {
+                if (done.count(s[i])) {
+                    ok = false;
+                    break;
+                }
+                done.insert(s[i]);
+            }
+        }
+
+        cout << (ok ? "YES" : "NO") << '\n';
+    }
+
+    return 0;
+}
