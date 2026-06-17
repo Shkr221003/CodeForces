@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        long long a, b;
+        cin >> a >> b;
+
+        long long s = max(max(a, b), 2 * min(a, b));
+        cout << s * s << '\n';
+    }
+
+    return 0;
+}
