@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        long long a, b, c, n;
+        cin >> a >> b >> c >> n;
+
+        long long s = a + b + c + n;
+
+        if (s % 3 == 0 && max({a, b, c}) <= s / 3)
+            cout << "YES\n";
+        else
+            cout << "NO\n";
+    }
+
+    return 0;
+}
