@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        string s;
+        cin >> n >> s;
+
+        char mx = *max_element(s.begin(), s.end());
+        cout << mx - 'a' + 1 << '\n';
+    }
+
+    return 0;
+}
