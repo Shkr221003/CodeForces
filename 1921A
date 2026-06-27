@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int x, y;
+        int mn = 1e9, mx = -1e9;
+
+        for (int i = 0; i < 4; i++) {
+            cin >> x >> y;
+            mn = min(mn, x);
+            mx = max(mx, x);
+        }
+
+        cout << (mx - mn) * (mx - mn) << '\n';
+    }
+
+    return 0;
+}
