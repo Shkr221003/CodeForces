@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n, x;
+        cin >> n;
+
+        int pos = 0, neg = 0;
+
+        for (int i = 0; i < n; i++) {
+            cin >> x;
+            if (x == 1) pos++;
+            else neg++;
+        }
+
+        int ans = 0;
+
+        while (pos < neg) {
+            pos++;
+            neg--;
+            ans++;
+        }
+
+        if (neg & 1) ans++;
+
+        cout << ans << '\n';
+    }
+
+    return 0;
+}
