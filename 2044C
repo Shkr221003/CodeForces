@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        long long k, a, b, c;
+        cin >> k >> a >> b >> c;
+
+        long long ans = min(a, k) + min(b, k);
+        ans += min(c, 2 * k - ans);
+
+        cout << ans << '\n';
+    }
+
+    return 0;
+}
