@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        string s;
+        cin >> s;
+
+        int i = 1;
+        while (i < s.size() && s[i] == s[0]) i++;
+
+        if (i == s.size()) {
+            cout << "NO\n";
+        } else {
+            swap(s[0], s[i]);
+            cout << "YES\n" << s << '\n';
+        }
+    }
+
+    return 0;
+}
