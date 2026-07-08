@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for (int &x : a) cin >> x;
+
+        int mx1 = *max_element(a.begin(), a.end());
+        int mx2 = -1;
+        for (int x : a)
+            if (x != mx1)
+                mx2 = max(mx2, x);
+
+        for (int x : a) {
+            cout << x - (x == mx1 && count(a.begin(), a.end(), mx1) == 1 ? mx2 : mx1) << ' ';
+        }
+        cout << '\n';
+    }
+    return 0;
+}
