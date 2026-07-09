@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    long long x, d, ice, distressed = 0;
+    char op;
+
+    cin >> n >> ice;
+    while (n--) {
+        cin >> op >> d;
+        if (op == '+')
+            ice += d;
+        else {
+            if (ice >= d) ice -= d;
+            else distressed++;
+        }
+    }
+
+    cout << ice << " " << distressed;
+    return 0;
+}
