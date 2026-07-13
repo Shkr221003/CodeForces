@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s, t;
+    cin >> s >> t;
+
+    int p = 0;
+    for (char c : t)
+        if (p < (int)s.size() && c == s[p]) ++p;
+
+    cout << p + 1 << '\n';
+    return 0;
+}
