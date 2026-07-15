@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        string s;
+        cin >> s;
+
+        int mn = 1e9, mx = 0, cnt = 1;
+
+        for (int i = 1; i <= s.size(); i++) {
+            if (i < s.size() && s[i] == s[i - 1]) cnt++;
+            else {
+                mn = min(mn, cnt);
+                mx = max(mx, cnt);
+                cnt = 1;
+            }
+        }
+
+        cout << mx - mn << '\n';
+    }
+
+    return 0;
+}
