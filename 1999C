@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n, s, m;
+        cin >> n >> s >> m;
+
+        int l = 0, r;
+        bool ok = false;
+
+        for (int i = 0; i < n; i++) {
+            cin >> l >> r;
+            if (l >= s) ok = true;
+            s -= (r - l);
+        }
+
+        if (m - r >= s) ok = true;
+
+        cout << (ok ? "YES" : "NO") << '\n';
+    }
+
+    return 0;
+}
