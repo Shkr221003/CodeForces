@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int a, b, c;
+        cin >> a >> b >> c;
+
+        int mx = max({a, b, c});
+
+        cout << max(0, mx - a + (a == mx && (a > b || a > c ? 0 : 1))) << " ";
+        cout << max(0, mx - b + (b == mx && (b > a || b > c ? 0 : 1))) << " ";
+        cout << max(0, mx - c + (c == mx && (c > a || c > b ? 0 : 1))) << '\n';
+    }
+
+    return 0;
+}
