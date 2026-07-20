@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    string pi = "314159265358979323846264338327";
+
+    while (t--) {
+        string s;
+        cin >> s;
+
+        int ans = 0;
+        while (ans < (int)s.size() && s[ans] == pi[ans])
+            ans++;
+
+        cout << ans << '\n';
+    }
+
+    return 0;
+}
