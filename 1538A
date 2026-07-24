@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        cin >> n;
+
+        vector<int> a(n);
+
+        int mn = 0, mx = 0;
+
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+
+            if (a[i] < a[mn])
+                mn = i;
+
+            if (a[i] > a[mx])
+                mx = i;
+        }
+
+        int l = min(mn, mx);
+        int r = max(mn, mx);
+
+        int ans = min({r + 1, n - l, (l + 1) + (n - r)});
+
+        cout << ans << '\n';
+    }
+
+    return 0;
+}
