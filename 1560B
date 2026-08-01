@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int a, b, c;
+        cin >> a >> b >> c;
+
+        int d = abs(a - b);
+        int n = 2 * d;
+
+        if (a == b || a > n || b > n || c > n) {
+            cout << -1 << '\n';
+            continue;
+        }
+
+        if (c + d <= n)
+            cout << c + d << '\n';
+        else
+            cout << c - d << '\n';
+    }
+
+    return 0;
+}
