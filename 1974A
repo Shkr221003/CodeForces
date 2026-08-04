@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        long long x, y;
+        cin >> x >> y;
+
+        long long screens = (y + 1) / 2;
+        long long free = screens * 15 - y * 4;
+
+        if (x > free) {
+            x -= free;
+            screens += (x + 14) / 15;
+        }
+
+        cout << screens << '\n';
+    }
+
+    return 0;
+}
