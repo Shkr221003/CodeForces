@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        string s;
+        cin >> s;
+
+        int first = -1, last = -1;
+
+        // Find first and last '1'
+        for (int i = 0; i < (int)s.size(); i++) {
+            if (s[i] == '1') {
+                if (first == -1)
+                    first = i;
+                last = i;
+            }
+        }
+
+        int ans = 0;
+
+        // Count zeroes between first and last 1
+        if (first != -1) {
+            for (int i = first; i <= last; i++) {
+                if (s[i] == '0')
+                    ans++;
+            }
+        }
+
+        cout << ans << '\n';
+    }
+
+    return 0;
+}
