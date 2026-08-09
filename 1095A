@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
+    string s;
+
+    cin >> n >> s;
+
+    string ans;
+
+    int pos = 0;
+    int step = 1;
+
+    while (pos < n) {
+        ans += s[pos];
+
+        pos += step;
+        step++;
+    }
+
+    cout << ans << '\n';
+
+    return 0;
+}
