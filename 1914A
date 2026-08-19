@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        string s;
+
+        cin >> n;
+        cin >> s;
+
+        int freq[26] = {0};
+
+        // Count each problem
+        for (char ch : s) {
+            freq[ch - 'A']++;
+        }
+
+        int answer = 0;
+
+        // Check if enough time was spent on each problem
+        for (int i = 0; i < 26; i++) {
+            if (freq[i] >= i + 1) {
+                answer++;
+            }
+        }
+
+        cout << answer << '\n';
+    }
+
+    return 0;
+}
