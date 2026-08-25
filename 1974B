@@ -12,26 +12,26 @@ int main() {
         int n;
         string b;
 
-        cin >> n >> b;
+        cin >> n;
+        cin >> b;
 
-        // Find all distinct characters
-        set<char> st(b);
+        // Find distinct characters
+        string r = "";
 
-        // Sorted distinct characters
-        string r(st.begin(), st.end());
-
-        // Create symmetric mapping
-        map<char, char> mp;
-
-        int m = r.size();
-
-        for (int i = 0; i < m; i++) {
-            mp[r[i]] = r[m - 1 - i];
+        for (char c : b) {
+            if (r.find(c) == string::npos) {
+                r += c;
+            }
         }
 
-        // Decode
+        // Sort characters alphabetically
+        sort(r.begin(), r.end());
+
+        // Decode each character
         for (char c : b) {
-            cout << mp[c];
+            int pos = r.find(c);
+
+            cout << r[r.size() - 1 - pos];
         }
 
         cout << '\n';
