@@ -1,0 +1,32 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n, m, l, r;
+        cin >> n >> m >> l >> r;
+
+        // We need an interval of length m containing 0
+        // and lying completely inside [l, r].
+
+        int left = max(l, -m);
+        int right = left + m;
+
+        // If right is beyond r, shift the interval right.
+        if (right > r) {
+            right = r;
+            left = right - m;
+        }
+
+        cout << left << " " << right << '\n';
+    }
+
+    return 0;
+}
