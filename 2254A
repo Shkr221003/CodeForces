@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int a, b, c;
+        cin >> a >> b >> c;
+
+        int rounds = 0;
+
+        while (a != b && b != c && a != c) {
+            // Find the player with minimum tokens
+            int mn = min({a, b, c});
+
+            // Find the player with maximum tokens
+            int mx = max({a, b, c});
+
+            // Give 1 token from maximum to minimum
+            if (a == mx)
+                a--;
+            else if (b == mx)
+                b--;
+            else
+                c--;
+
+            if (a == mn)
+                a++;
+            else if (b == mn)
+                b++;
+            else
+                c++;
+
+            rounds++;
+        }
+
+        cout << rounds << '\n';
+    }
+
+    return 0;
+}
