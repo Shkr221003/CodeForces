@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int s;
+        cin >> s;
+
+        bool used[10] = {};
+
+        // Take the largest digits first
+        for (int d = 9; d >= 1; d--) {
+            if (s >= d) {
+                s -= d;
+                used[d] = true;
+            }
+        }
+
+        // Print in increasing order to get the minimum number
+        for (int d = 1; d <= 9; d++) {
+            if (used[d]) {
+                cout << d;
+            }
+        }
+
+        cout << '\n';
+    }
+
+    return 0;
+}
