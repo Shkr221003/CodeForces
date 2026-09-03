@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int getTime(const string &s) {
+    int time = 2;  // first character
+
+    for (int i = 1; i < (int)s.size(); i++) {
+        if (s[i] == s[i - 1])
+            time += 1;
+        else
+            time += 2;
+    }
+
+    return time;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        string s;
+        cin >> s;
+
+        string answer;
+        int best = -1;
+
+        // Try every insertion position
+        for (int pos = 0; pos <= (int)s.size(); pos++) {
+
+            // Try every lowercase letter
+            for (char c = 'a'; c <= 'z'; c++) {
+                string temp = s;
+                temp.insert(temp.begin() + pos, c);
+
+                int current = getTime(temp);
+
+                if (current > best) {
+                    best = current;
+                    answer = temp;
+                }
+            }
+        }
+
+        cout << answer << '\n';
+    }
+
+    return 0;
+}
