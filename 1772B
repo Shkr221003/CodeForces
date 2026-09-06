@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool beautiful(vector<vector<int>>& a) {
+    return a[0][0] < a[0][1] &&
+           a[1][0] < a[1][1] &&
+           a[0][0] < a[1][0] &&
+           a[0][1] < a[1][1];
+}
+
+void rotateClockwise(vector<vector<int>>& a) {
+    int temp = a[0][0];
+
+    a[0][0] = a[1][0];
+    a[1][0] = a[1][1];
+    a[1][1] = a[0][1];
+    a[0][1] = temp;
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        vector<vector<int>> a(2, vector<int>(2));
+
+        cin >> a[0][0] >> a[0][1];
+        cin >> a[1][0] >> a[1][1];
+
+        bool possible = false;
+
+        // Try all 4 rotations
+        for (int rotation = 0; rotation < 4; rotation++) {
+            if (beautiful(a)) {
+                possible = true;
+                break;
+            }
+
+            rotateClockwise(a);
+        }
+
+        cout << (possible ? "YES" : "NO") << '\n';
+    }
+
+    return 0;
+}
