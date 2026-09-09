@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        cin >> n;
+
+        const int INF = 1e9;
+
+        int a = INF; // 10
+        int b = INF; // 01
+        int c = INF; // 11
+
+        for (int i = 0; i < n; i++) {
+            int time;
+            string s;
+
+            cin >> time >> s;
+
+            if (s == "10")
+                a = min(a, time);
+            else if (s == "01")
+                b = min(b, time);
+            else if (s == "11")
+                c = min(c, time);
+        }
+
+        int ans = min(c, a + b);
+
+        if (ans >= INF)
+            cout << -1 << '\n';
+        else
+            cout << ans << '\n';
+    }
+
+    return 0;
+}
