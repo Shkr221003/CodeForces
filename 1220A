@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
+    cin >> n;
+
+    string s;
+    cin >> s;
+
+    int e = 0, ncnt = 0, o = 0, z = 0, r = 0;
+
+    for (char c : s) {
+        if (c == 'e') e++;
+        else if (c == 'n') ncnt++;
+        else if (c == 'o') o++;
+        else if (c == 'z') z++;
+        else if (c == 'r') r++;
+    }
+
+    // "one" needs one o, one n and one e
+    int ones = min({o, ncnt, e});
+
+    // Remove letters used for "one"
+    o -= ones;
+    e -= ones;
+
+    // "zero" needs one z, one e, one r and one o
+    int zeros = min({z, e, r, o});
+
+    // Maximum binary number = all 1s first, then 0s
+    for (int i = 0; i < ones; i++) {
+        cout << 1 << " ";
+    }
+
+    for (int i = 0; i < zeros; i++) {
+        cout << 0 << " ";
+    }
+
+    cout << '\n';
+
+    return 0;
+}
