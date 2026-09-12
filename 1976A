@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        string s;
+        cin >> n >> s;
+
+        string letters = "", digits = "";
+
+        for (char c : s) {
+            if (c >= 'a' && c <= 'z')
+                letters += c;
+            else
+                digits += c;
+        }
+
+        string sortedLetters = letters;
+        string sortedDigits = digits;
+
+        sort(sortedLetters.begin(), sortedLetters.end());
+        sort(sortedDigits.begin(), sortedDigits.end());
+
+        if (letters == sortedLetters &&
+            digits == sortedDigits) {
+
+            bool valid = true;
+
+            for (int i = 0; i < n - 1; i++) {
+                if (isdigit(s[i]) && isalpha(s[i + 1])) {
+                    valid = false;
+                    break;
+                }
+            }
+
+            cout << (valid ? "YES\n" : "NO\n");
+        } else {
+            cout << "NO\n";
+        }
+    }
+
+    return 0;
+}
