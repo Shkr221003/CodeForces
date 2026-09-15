@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int xa, ya, xb, yb, xf, yf;
+        cin >> xa >> ya;
+        cin >> xb >> yb;
+        cin >> xf >> yf;
+
+        int ans = abs(xa - xb) + abs(ya - yb);
+
+        // Obstacle is between A and B on the same row.
+        if (ya == yb && yb == yf &&
+            xf > min(xa, xb) && xf < max(xa, xb)) {
+            ans += 2;
+        }
+
+        // Obstacle is between A and B on the same column.
+        if (xa == xb && xb == xf &&
+            yf > min(ya, yb) && yf < max(ya, yb)) {
+            ans += 2;
+        }
+
+        cout << ans << '\n';
+    }
+
+    return 0;
+}
