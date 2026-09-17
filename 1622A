@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        long long a, b, c;
+        cin >> a >> b >> c;
+
+        bool ok = false;
+
+        // Break a stick into pieces equal to the other two sticks.
+        if (a == b + c || b == a + c || c == a + b) {
+            ok = true;
+        }
+
+        // Two equal sticks, and the remaining stick must be even.
+        if (a == b && c % 2 == 0) {
+            ok = true;
+        }
+
+        if (a == c && b % 2 == 0) {
+            ok = true;
+        }
+
+        if (b == c && a % 2 == 0) {
+            ok = true;
+        }
+
+        cout << (ok ? "YES" : "NO") << '\n';
+    }
+
+    return 0;
+}
