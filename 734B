@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    long long k2, k3, k5, k6;
+    cin >> k2 >> k3 >> k5 >> k6;
+
+    // Make as many 256 as possible
+    long long x = min({k2, k5, k6});
+    long long ans = x * 256;
+
+    // Use remaining 2s to make 32
+    k2 -= x;
+    long long y = min(k2, k3);
+    ans += y * 32;
+
+    cout << ans << '\n';
+
+    return 0;
+}
