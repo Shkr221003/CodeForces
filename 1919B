@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        string s;
+        cin >> n >> s;
+
+        int plus = 0, minus = 0;
+
+        for (char c : s) {
+            if (c == '+')
+                plus++;
+            else
+                minus++;
+        }
+
+        cout << abs(plus - minus) << '\n';
+    }
+
+    return 0;
+}
