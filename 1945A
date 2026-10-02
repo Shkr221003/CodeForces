@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        long long single, poly, uni;
+        cin >> single >> poly >> uni;
+
+        long long need = (3 - poly % 3) % 3;
+
+        if (poly > 0 && need > uni) {
+            cout << -1 << '\n';
+            continue;
+        }
+
+        poly += need;
+        uni -= need;
+
+        long long ans = single;
+
+        // Polyglots in groups of 3
+        ans += poly / 3;
+
+        // Remaining universal people
+        ans += (uni + 2) / 3;
+
+        cout << ans << '\n';
+    }
+
+    return 0;
+}
