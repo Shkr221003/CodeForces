@@ -1,0 +1,47 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        cin >> n;
+
+        int l = 1, r = 1000000000;
+        vector<int> excluded;
+
+        for (int i = 0; i < n; i++) {
+            int a, x;
+            cin >> a >> x;
+
+            if (a == 1)
+                l = max(l, x);
+            else if (a == 2)
+                r = min(r, x);
+            else
+                excluded.push_back(x);
+        }
+
+        if (l > r) {
+            cout << 0 << '\n';
+            continue;
+        }
+
+        long long ans = r - l + 1;
+
+        for (int x : excluded) {
+            if (x >= l && x <= r)
+                ans--;
+        }
+
+        cout << ans << '\n';
+    }
+
+    return 0;
+}
