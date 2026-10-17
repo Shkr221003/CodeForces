@@ -1,0 +1,26 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    while (t--) {
+        string s;
+        cin >> s;
+
+        int zeros = count(s.begin(), s.end(), '0');
+        int ones = (int)s.size() - zeros;
+
+        if (zeros == ones)
+            cout << zeros - 1 << '\n';
+        else
+            cout << min(zeros, ones) << '\n';
+    }
+
+    return 0;
+}
