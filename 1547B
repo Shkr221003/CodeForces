@@ -1,0 +1,48 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int t = sc.nextInt();
+
+        while (t-- > 0) {
+            String s = sc.next();
+
+            int n = s.length();
+
+            int pos = s.indexOf('a');
+
+            if (pos == -1) {
+                System.out.println("NO");
+                continue;
+            }
+
+            int left = pos;
+            int right = pos;
+
+            boolean possible = true;
+
+            for (char ch = 'b'; ch < 'a' + n; ch++) {
+
+                int index = s.indexOf(ch);
+
+                if (index == left - 1) {
+                    left--;
+                } 
+                else if (index == right + 1) {
+                    right++;
+                } 
+                else {
+                    possible = false;
+                    break;
+                }
+            }
+
+            System.out.println(possible ? "YES" : "NO");
+        }
+
+        sc.close();
+    }
+}
