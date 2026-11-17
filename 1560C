@@ -1,0 +1,38 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int t = sc.nextInt();
+
+        while (t-- > 0) {
+            long k = sc.nextLong();
+
+            long i = 1;
+
+            // Find the smallest layer whose square >= k
+            while (i * i < k) {
+                i++;
+            }
+
+            // Position of k inside the current layer
+            long m = k - (i - 1) * (i - 1);
+
+            long r, c;
+
+            if (m <= i) {
+                r = m;
+                c = i;
+            } else {
+                r = i;
+                c = 2 * i - m;
+            }
+
+            System.out.println(r + " " + c);
+        }
+
+        sc.close();
+    }
+}
