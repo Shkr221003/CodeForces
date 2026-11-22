@@ -1,0 +1,42 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int t = sc.nextInt();
+
+        while (t-- > 0) {
+            long a = sc.nextLong();
+            long b = sc.nextLong();
+            long x = sc.nextLong();
+            long y = sc.nextLong();
+
+            long ans;
+
+            if (a > b) {
+                if ((a ^ 1) == b) {
+                    ans = y;
+                } else {
+                    ans = -1;
+                }
+            } else {
+                long total = b - a;
+
+                // Count even numbers in [a, b-1]
+                long evenCount = (b + 1) / 2 - (a + 1) / 2;
+
+                long oddCount = total - evenCount;
+
+                // Use the cheaper operation for even numbers
+                ans = oddCount * x
+                    + evenCount * Math.min(x, y);
+            }
+
+            System.out.println(ans);
+        }
+
+        sc.close();
+    }
+}
