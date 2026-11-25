@@ -1,0 +1,47 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int t = sc.nextInt();
+
+        while (t-- > 0) {
+            int n = sc.nextInt();
+
+            boolean found = false;
+
+            for (int x = 1; x <= 20 && !found; x++) {
+                for (int y = 1; y <= 20; y++) {
+
+                    int z = n - x - y;
+
+                    if (z <= 0) {
+                        continue;
+                    }
+
+                    if (x == y || x == z || y == z) {
+                        continue;
+                    }
+
+                    if (x % 3 == 0 || y % 3 == 0 || z % 3 == 0) {
+                        continue;
+                    }
+
+                    System.out.println("YES");
+                    System.out.println(x + " " + y + " " + z);
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                System.out.println("NO");
+            }
+        }
+
+        sc.close();
+    }
+}
